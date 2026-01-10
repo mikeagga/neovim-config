@@ -1,0 +1,13 @@
+*.swp
+*.swo
+
+undo/
+session/
+shada/
+
+plugin/
+autoload/
+pack/
+site/
+
+nvim-pack-lock.json
