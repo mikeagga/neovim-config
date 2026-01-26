@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.pack.add({
 	{ src = "https://github.com/rockerBOO/boo-colorscheme-nvim" },
+	{ src = "https://github.com/p00f/alabaster.nvim" },
 	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter',        build = ':TSUpdate',             version = 'main' },
 	{ src = 'https://github.com/neovim/nvim-lspconfig' },
 	{ src = "https://github.com/mason-org/mason.nvim" },
@@ -43,6 +44,8 @@ vim.pack.add({
 	{ src = "https://github.com/aznhe21/actions-preview.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
+	{ src = "https://github.com/quarto-dev/quarto-nvim" },
+	{ src = "https://github.com/jmbuhr/otter.nvim" },
 })
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -50,16 +53,14 @@ vim.api.nvim_create_autocmd('FileType', {
 	callback = function() vim.treesitter.start() end,
 })
 
-vim.lsp.enable("lua_ls")
-
-require("boo-colorscheme").use({
-	italic = true,
-	theme = "boo"
-})
+vim.lsp.enable({ "lua_ls", "pyright", "marksman"})
 
 vim.cmd(":hi statusline guibg=NONE")
 
 require "mason".setup()
+
+require "otter"
+require "quarto".setup()
 
 require("blink.cmp").setup({
 	signature = {
@@ -119,7 +120,7 @@ require("oil").setup({
 vim.keymap.set("n", "<leader>e", ":Oil<Cr>")
 
 local telescope = require("telescope")
-local default_color = "boo"
+local default_color = "alabaster"
 
 telescope.setup({
 	defaults = {
