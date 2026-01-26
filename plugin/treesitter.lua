@@ -23,6 +23,7 @@ local ensure_installed = {
 	"rust",
 	"python",
 	"html",
+	"r",
 	"css",
 	"cpp",
 }

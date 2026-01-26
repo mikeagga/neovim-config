@@ -48,12 +48,15 @@ vim.pack.add({
 	{ src = "https://github.com/jmbuhr/otter.nvim" },
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-	pattern = { 'markdown', 'lua', 'c', 'cpp' },
-	callback = function() vim.treesitter.start() end,
+vim.lsp.config('marksman', {
+  cmd = { "marksman", "server" },
+  filetypes = { "markdown", "quarto" },
+  root_markers = { ".marksman.toml", ".git" },
 })
 
-vim.lsp.enable({ "lua_ls", "pyright", "marksman"})
+vim.lsp.enable({ "lua_ls", "pyright", "marksman" })
+
+vim.lsp.enable({ "lua_ls", "pyright", "marksman" })
 
 vim.cmd(":hi statusline guibg=NONE")
 
