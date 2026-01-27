@@ -46,17 +46,16 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 	{ src = "https://github.com/quarto-dev/quarto-nvim" },
 	{ src = "https://github.com/jmbuhr/otter.nvim" },
+	{ src = "https://github.com/R-nvim/R.nvim" },
 })
 
 vim.lsp.config('marksman', {
-  cmd = { "marksman", "server" },
-  filetypes = { "markdown", "quarto" },
-  root_markers = { ".marksman.toml", ".git" },
+	cmd = { "marksman", "server" },
+	filetypes = { "markdown", "quarto" },
+	root_markers = { ".marksman.toml", ".git" },
 })
 
-vim.lsp.enable({ "lua_ls", "pyright", "marksman" })
-
-vim.lsp.enable({ "lua_ls", "pyright", "marksman" })
+vim.lsp.enable({ "lua_ls", "pyright", "marksman", "r-languageserver" })
 
 vim.cmd(":hi statusline guibg=NONE")
 
@@ -64,6 +63,8 @@ require "mason".setup()
 
 require "otter"
 require "quarto".setup()
+require "r".setup()
+
 
 require("blink.cmp").setup({
 	signature = {

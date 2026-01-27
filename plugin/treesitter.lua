@@ -24,6 +24,7 @@ local ensure_installed = {
 	"python",
 	"html",
 	"r",
+	"rnoweb",
 	"css",
 	"cpp",
 }
